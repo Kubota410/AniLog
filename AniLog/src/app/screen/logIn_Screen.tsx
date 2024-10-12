@@ -1,3 +1,4 @@
+import React from 'react'
 import { Text, TextInput, View, StyleSheet } from 'react-native'
 import { Text as ElementText } from 'react-native-elements'
 import Header from '../../components/Header'
@@ -25,7 +26,7 @@ const LogIn = (): JSX.Element => {
                 {/* URLはindexから見た階層を指定する。 
                 asChildを使って入れ子にすることで、子要素のスタイルを優先できる。
                 押下時の色の変化などを統一したいため */}
-                <Link href={'/auth/sign_up'} asChild>
+                <Link href={'/screen/signUp_Screen'} asChild>
                     <ElementText style={{ color: 'blue', textDecorationLine: 'underline' }}>
                         会員登録
                     </ElementText>
