@@ -7,7 +7,8 @@ import { Button } from 'react-native-elements'
 // 指定のページへリダイレクトする
 const Index = (): JSX.Element => {
     return (
-        // <Redirect href='screen/logIn_Screen' />
+        // <Redirect href='screen/releaseNotes_Screen' />
+        // <Redirect href='screen/test' />
 
         // 開発中のみ 後で消す
         <View>

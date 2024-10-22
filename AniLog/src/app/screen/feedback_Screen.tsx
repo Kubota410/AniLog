@@ -1,12 +1,19 @@
 import React from 'react'
-import { Text, View, StyleSheet } from 'react-native'
+import { View, StyleSheet } from 'react-native'
+import HeaderSub from '../../components/HeaderSub'
 
 // MemoListメイン画面
-const AnimeList_Screen = (): JSX.Element => {
+const Feedback_Screen = (): JSX.Element => {
   return (
     // 外枠
     <View style={styles.container}>
-        <Text>feedback_Screen</Text>
+        {/* ヘッダー */}
+        <HeaderSub subTitleStr='質問・要望' />
+
+        {/* ボディ */}
+        <View style={styles.body}>
+
+        </View>
     </View>
   )
 }
@@ -16,7 +23,12 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: '#ffffff'
+    },
+
+    body:{
+        backgroundColor: '#DCDCDC',
+        flex: 1
     }
 })
 
-export default AnimeList_Screen
+export default Feedback_Screen

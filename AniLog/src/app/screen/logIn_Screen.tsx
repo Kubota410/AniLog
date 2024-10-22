@@ -1,7 +1,7 @@
 import React from 'react'
 import { Text, TextInput, View, StyleSheet } from 'react-native'
 import { Text as ElementText } from 'react-native-elements'
-import Header from '../../components/Header'
+import Header from '../../components/HeaderMain'
 import Button from '../../components/Button'
 import { Link } from 'expo-router'
 
