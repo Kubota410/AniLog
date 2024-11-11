@@ -1,11 +1,7 @@
 import React from 'react'
-import { Text, View, StyleSheet, TextInput, Button, Alert } from 'react-native'
+import { Text, View, StyleSheet, TextInput } from 'react-native'
 import HeaderMain from '../../components/HeaderMain'
 import AnimeListItem from '../../components/AnimeListItem'
-
-const handlePress = () => {
-  Alert.alert("Button Pressed!", "You pressed the button.")
-}
 
 // MemoListメイン画面
 const AnimeList_Screen = (): JSX.Element => {
@@ -22,18 +18,15 @@ const AnimeList_Screen = (): JSX.Element => {
 
             {/* Body */}
             <View style={styles.body}>
-            <View style={styles.bodyInfo}>
-                <Text style={{color:'darkgray'}}>10件</Text>
-            </View>
-            {/* リスト */}
-            <View style={styles.list}>
-                <AnimeListItem animeTitle='アニメタイトル1' animeAirDate='yyyy/mm/dd' />
-                <AnimeListItem animeTitle='アニメタイトル2' animeAirDate='yyyy/mm/dd' />
-                <AnimeListItem animeTitle='アニメタイトル3' animeAirDate='yyyy/mm/dd' />
-            </View>
-            <View>
-                <Button title='TEST' onPress={handlePress} />
-            </View>
+                <View style={styles.bodyInfo}>
+                    <Text style={{color:'darkgray'}}>10件</Text>
+                </View>
+                {/* リスト */}
+                <View style={styles.list}>
+                    <AnimeListItem animeTitle='アニメタイトル1' animeAirDate='yyyy/mm/dd' />
+                    <AnimeListItem animeTitle='アニメタイトル2' animeAirDate='yyyy/mm/dd' />
+                    <AnimeListItem animeTitle='アニメタイトル3' animeAirDate='yyyy/mm/dd' />
+                </View>
             </View>
         </View>
     )

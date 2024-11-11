@@ -1,6 +1,7 @@
-import { AntDesign } from "@expo/vector-icons"
 import { Text, View, StyleSheet } from "react-native"
-import { Link } from 'expo-router'
+import FilterButton from "./molecules/FilterButton"
+import HamburgerButton from "./molecules/HamburgerButton"
+import { CONST_SIZES } from "../constants/styleConstants"
 
 // 引数
 interface Props{
@@ -14,9 +15,7 @@ const HeaderSub = (props: Props): JSX.Element => {
         <View style={styles.header}>
             {/* 設定アイコン */}
             <View>
-                <Link href={'/'}>
-                    <AntDesign name='back' size={30}/>
-                </Link>            
+                <HamburgerButton />
             </View>
             
             {/* サブヘッダータイトル */}
@@ -25,8 +24,8 @@ const HeaderSub = (props: Props): JSX.Element => {
             </View>
             
             {/* フィルターアイコン 使用しないが、配置調整がめんどくさいので透明にして配置しておく */}
-            <View style={styles.fillterIcon}>
-                <AntDesign name='filter' size={30} color={'transparent'}/>
+            <View>
+                <FilterButton />
             </View>
         </View>
     )
@@ -46,17 +45,8 @@ const styles = StyleSheet.create({
 
     // サブタイトル
     subTitle:{
-        fontSize: 30,
+        fontSize: CONST_SIZES.L,
         fontWeight: 'bold'
-    },
-
-    // 設定アイコン
-    settingIcon:{
-
-    },
-    // フィルターアイコン
-    fillterIcon:{
-
     }
 })
 

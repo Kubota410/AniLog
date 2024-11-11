@@ -1,39 +1,27 @@
-import { AntDesign } from "@expo/vector-icons"
-import SegmentedControl from "@react-native-community/segmented-control"
-import { useState } from "react"
-import { View, StyleSheet } from "react-native"
+import { Text, View, StyleSheet } from "react-native"
+import { CONST_COLORS, CONST_DIMENSIONS, CONST_SIZES } from "../constants/styleConstants"
+import HamburgerButton from "./molecules/HamburgerButton"
+import FilterButton from "./molecules/FilterButton"
 
 // メイン画面ヘッダー
 const HeaderMain = (): JSX.Element => {
-    const [selectedIndex, setSelectedIndex] = useState(0)
 
-    // segmentedControlの値が変更されたことを検知する
-    const handleValueChange = (index) => {
-        setSelectedIndex(index)
-    }
     return (
         <View style={styles.header}>
-            {/* 設定アイコン */}
+            {/* メニューアイコン */}
             <View>
-                <AntDesign name='setting' size={30}/>
+                {/* <HamburgerMenuIcon /> */}
+                <HamburgerButton />
             </View>
             
             {/* 中央コントロールタブ */}
-            <View  style={styles.segmentedControlContainer}>
-                <SegmentedControl
-                values={['今期', '全期']}
-                selectedIndex={selectedIndex}
-                onChange={(event: { nativeEvent: { selectedSegmentIndex: any } }) => {
-                    const index = event.nativeEvent.selectedSegmentIndex
-                    handleValueChange(index)
-                }}
-                style={styles.segmentedControl}
-                />
+            <View>
+                <Text style={styles.title}>今期 2024年秋</Text>
             </View>
             
             {/* フィルターアイコン */}
-            <View style={styles.fillterIcon}>
-                <AntDesign name='filter' size={30}/>
+            <View>
+                <FilterButton />
             </View>
         </View>
     )
@@ -42,32 +30,26 @@ const HeaderMain = (): JSX.Element => {
 const styles = StyleSheet.create({
     // ヘッダー
     header:{
-        height: 60,
-        backgroundColor: 'white',
+        height: CONST_DIMENSIONS.headerHeight,
+        backgroundColor: CONST_COLORS.backGroundHeader,
         paddingBottom: 8,
         paddingHorizontal: 16,
         flexDirection: 'row', // 中の要素を横並び
         alignItems: 'flex-end', // 下揃え
         justifyContent: 'space-between' // 中央、左端、右端に配置
     },
-    // 中央コントロールコンテナ
-    segmentedControlContainer:{
-        width:180,
-        height:40,
-        justifyContent: 'center',
-        borderRadius: 8 //角を丸める
+    // サブタイトル
+    title:{
+        fontSize: CONST_SIZES.L,
+        fontWeight: 'bold'
     },
     segmentedControl:{
         backgroundColor: '#B2B2B2',
         height: '100%'
     },
-    // 設定アイコン
-    settingIcon:{
-
-    },
-    // フィルターアイコン
-    fillterIcon:{
-
+    icon:{
+        color: CONST_COLORS.icomHeader,
+        fontSize: CONST_SIZES.L
     }
 })
 
