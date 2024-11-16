@@ -1,7 +1,8 @@
 import { Text, View, StyleSheet } from "react-native"
-import FilterButton from "./molecules/FilterButton"
-import HamburgerButton from "./molecules/HamburgerButton"
-import { CONST_SIZES } from "../constants/styleConstants"
+// import FilterButton from "../molecules/FilterButton"
+import HamburgerButton from "../molecules/HamburgerButton"
+import { CONST_SIZES } from "../../constants/styleConstants"
+import { KariIcon } from "../atoms/Icons"
 
 // 引数
 interface Props{
@@ -23,9 +24,10 @@ const HeaderSub = (props: Props): JSX.Element => {
                 <Text style={styles.subTitle}>{subTitleStr}</Text>
             </View>
             
-            {/* フィルターアイコン 使用しないが、配置調整がめんどくさいので透明にして配置しておく */}
+            {/* フィルターアイコン 使用しないが、配置調整がめんどくさいので透明アイコンを配置しておく */}
             <View>
-                <FilterButton />
+                {/* <FilterButton /> */}
+                <KariIcon />
             </View>
         </View>
     )

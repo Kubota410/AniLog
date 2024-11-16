@@ -1,6 +1,6 @@
 import React from 'react'
 import { View, StyleSheet } from 'react-native'
-import HeaderSub from '../../components/HeaderSub'
+import HeaderSub from '../../components/organisms/HeaderSub'
 
 // MemoListメイン画面
 const Setting_Notify_Screen = (): JSX.Element => {

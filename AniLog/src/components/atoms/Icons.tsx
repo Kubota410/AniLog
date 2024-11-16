@@ -25,6 +25,16 @@ export const FilterIcon = ():JSX.Element => {
     )
 }
 
+/**
+ * サブヘッダーサイズ調整用の適当な透明アイコン
+ */
+export const KariIcon = ():JSX.Element => {
+    return (
+        <>
+            <AntDesign name='smileo' style={[styles.icon,{opacity:0}]} />
+        </>
+    )
+}
 
 const styles = StyleSheet.create({
     icon:{

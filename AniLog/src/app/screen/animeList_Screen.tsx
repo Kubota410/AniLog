@@ -1,7 +1,7 @@
 import React from 'react'
 import { Text, View, StyleSheet, TextInput } from 'react-native'
-import HeaderMain from '../../components/HeaderMain'
-import AnimeListItem from '../../components/AnimeListItem'
+import HeaderMain from '../../components/organisms/HeaderMain'
+import AnimeListItem from '../../components/molecules/AnimeListItem'
 
 // MemoListメイン画面
 const AnimeList_Screen = (): JSX.Element => {

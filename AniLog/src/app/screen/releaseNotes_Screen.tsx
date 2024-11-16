@@ -1,6 +1,6 @@
 import React from 'react'
 import { View, StyleSheet } from 'react-native'
-import HeaderSub from '../../components/HeaderSub'
+import HeaderSub from '../../components/organisms/HeaderSub'
 
 // MemoListメイン画面
 const releaseNotes_Screen = (): JSX.Element => {
