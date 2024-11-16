@@ -1,26 +1,21 @@
 import React, { useState, useEffect } from 'react'
-import { Modal, View, Text, StyleSheet, Animated, Dimensions, TouchableWithoutFeedback } from 'react-native'
+import { Modal, View, Text, StyleSheet, Animated, TouchableWithoutFeedback, Dimensions } from 'react-native'
 import { CONST_DIMENSIONS, CONST_SIZES } from '../../constants/styleConstants'
-import SideMenuButton from '../atoms/Button'
-import { CONST_SLIDE_ANIMATION } from '../../constants/animationConstants'
-import { SCREENS } from '../../constants/textConstants'
+import { CONST_SLIDE_ANIMATION_FILTER } from '../../constants/animationConstants'
 
-const { width } = Dimensions.get('window')
-const initialPosition = -width * 0.8
-
-interface SideMenuModalProps {
+interface SideMenuFilterModalProps {
   isVisible: boolean
   onClose: () => void
 }
 
-const SideMenuModal: React.FC<SideMenuModalProps> = ({ isVisible, onClose }) => {
-  const [slideAnim] = useState(new Animated.Value(initialPosition))
+const SideMenuFilterModal: React.FC<SideMenuFilterModalProps> = ({ isVisible, onClose }) => {
+  const [slideAnim] = useState(new Animated.Value(CONST_SLIDE_ANIMATION_FILTER.initialPosition)) //初期位置
 
   // モーダルを開く関数
   const openModal = () => {
     Animated.timing(slideAnim, {
-      toValue: CONST_SLIDE_ANIMATION.toValueSlideIn, //スライドインアニメーション終了位置
-      duration: CONST_SLIDE_ANIMATION.duration, //アニメーション時間
+      toValue: CONST_SLIDE_ANIMATION_FILTER.toValueSlideIn, //スライドインアニメーション終了位置
+      duration: CONST_SLIDE_ANIMATION_FILTER.duration, //アニメーション時間
       useNativeDriver: true
     }).start()
   }
@@ -28,8 +23,8 @@ const SideMenuModal: React.FC<SideMenuModalProps> = ({ isVisible, onClose }) => 
   // モーダルを閉じる関数
   const closeModal = () => {
     Animated.timing(slideAnim, {
-      toValue: CONST_SLIDE_ANIMATION.toValueSlideOut, //スライドインアウトアニメーション終了位置
-      duration: CONST_SLIDE_ANIMATION.duration, //アニメーション時間
+      toValue: CONST_SLIDE_ANIMATION_FILTER.toValueSlideOut, //スライドインアウトアニメーション終了位置
+      duration: CONST_SLIDE_ANIMATION_FILTER.duration, //アニメーション時間
       useNativeDriver: true
     }).start(() => {
       onClose()
@@ -60,15 +55,9 @@ const SideMenuModal: React.FC<SideMenuModalProps> = ({ isVisible, onClose }) => 
               <View style={styles.sideMenuHeader}>
                 <Text style={styles.headerText}>Anilog</Text>
               </View>
-              {/* サイドメニューの各ボタンを表示 */}
-              {SCREENS.map((screen) => (
-                <SideMenuButton 
-                  key={screen.title} //ループ処理用のKey
-                  title={screen.title} //ボタン表記
-                  onPress={closeModal} //Modal Closeイベント
-                  destination={screen.destination} //遷移先
-                />
-              ))}
+              <View>
+                <Text>ここにFilterを追加していく</Text>
+              </View>
             </Animated.View>
           </TouchableWithoutFeedback>
         </View>
@@ -76,6 +65,9 @@ const SideMenuModal: React.FC<SideMenuModalProps> = ({ isVisible, onClose }) => 
     </Modal>
   )
 }
+
+// 画面の横幅
+const { width } = Dimensions.get('window')
 
 const styles = StyleSheet.create({
   sideMenuItem: {
@@ -138,4 +130,4 @@ const styles = StyleSheet.create({
   }
 })
 
-export default SideMenuModal
+export default SideMenuFilterModal

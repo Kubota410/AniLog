@@ -1,3 +1,7 @@
+import { Dimensions } from "react-native"
+
+// 画面の横幅
+const { width } = Dimensions.get('window')
 
 /**
  * サイズ関連の定数

@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { TouchableOpacity } from 'react-native'
 import { HamburgerMenuIcon } from '../atoms/Icons'
-import SideMenuModal from '../molecules/SideMenu'
+import SideMenuNavigationModal from '../organisms/SideMenuNavigation'
 
 // ハンバーガーボタン 押下時に色を半透明にする
 const HamburgerButton = () => {
@@ -21,7 +21,7 @@ const HamburgerButton = () => {
 			</TouchableOpacity>
 
 			{/* サイドメニューがオープンしているときだけ表示 */}
-			{isActive && <SideMenuModal isVisible={isActive} onClose={() => setIsActive(false)} />}
+			{isActive && <SideMenuNavigationModal isVisible={isActive} onClose={() => setIsActive(false)} />}
 		</>    
 	)
 }
