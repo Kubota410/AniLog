@@ -3,6 +3,7 @@ import { Modal, View, Text, StyleSheet, Animated, Dimensions, TouchableWithoutFe
 import { CONST_DIMENSIONS, CONST_SIZES } from '../../constants/styleConstants'
 import SideMenuButton from '../atoms/Button'
 import { CONST_SLIDE_ANIMATION } from '../../constants/animationConstants'
+import { SCREENS } from '../../constants/textConstants'
 
 const { width } = Dimensions.get('window')
 const initialPosition = -width * 0.8
@@ -43,7 +44,6 @@ const SideMenuModal: React.FC<SideMenuModalProps> = ({ isVisible, onClose }) => 
     }
   }, [isVisible, slideAnim])
 
-
   return (
     <Modal
       transparent={true}
@@ -51,28 +51,24 @@ const SideMenuModal: React.FC<SideMenuModalProps> = ({ isVisible, onClose }) => 
       visible={isVisible}
       onRequestClose={closeModal}
     >
+      {/* 画面全体にCloseイベントを設定 */}
       <TouchableWithoutFeedback onPress={closeModal}>
         <View style={styles.modalBackground}>
+          {/* Closeイベントの影響しないメイン画面を前面配置 */}
           <TouchableWithoutFeedback>
             <Animated.View style={[styles.menu, { transform: [{ translateX: slideAnim }] }]}>
               <View style={styles.sideMenuHeader}>
                 <Text style={styles.headerText}>Anilog</Text>
               </View>
-              {/* ボタンにhandleNavigationを割り当て */}
-              <SideMenuButton title="ホーム" onPress={closeModal} destination="/" />
-              <SideMenuButton title="ボタン設定" onPress={closeModal} destination="/screen/setting_Button_Screen" />
-              <SideMenuButton title="ホーム" onPress={closeModal} destination="/" />
-              <SideMenuButton title="ホーム" onPress={closeModal} destination="/" />
-              <SideMenuButton title="ホーム" onPress={closeModal} destination="/" />
-              <SideMenuButton title="ホーム" onPress={closeModal} destination="/" />
-              <SideMenuButton title="ホーム" onPress={closeModal} destination="/" />
-{/* 
-              <SideMenuButton title="" onPress={() => handleNavigation('/screen/setting_Button_Screen')} />
-              <SideMenuButton title="通知設定" onPress={() => handleNavigation('/screen/setting_Notify_Screen')} />
-              <SideMenuButton title="アプリを紹介する（感謝）" onPress={() => handleNavigation('/')} />
-              <SideMenuButton title="アプリをレビューする（感謝）" onPress={() => handleNavigation('/')} />
-              <SideMenuButton title="アカウント（annict）" onPress={() => handleNavigation('/')} />
-              <SideMenuButton title="アプデ日記" onPress={() => handleNavigation('/screen/releaseNotes_Screen')} /> */}
+              {/* サイドメニューの各ボタンを表示 */}
+              {SCREENS.map((screen) => (
+                <SideMenuButton 
+                  key={screen.title} //ループ処理用のKey
+                  title={screen.title} //ボタン表記
+                  onPress={closeModal} //Modal Closeイベント
+                  destination={screen.destination} //遷移先
+                />
+              ))}
             </Animated.View>
           </TouchableWithoutFeedback>
         </View>
