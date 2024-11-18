@@ -1,10 +1,13 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Text, View, StyleSheet, TextInput } from 'react-native'
 import HeaderMain from '../../components/organisms/HeaderMain'
 import AnimeListItem from '../../components/molecules/AnimeListItem'
+import { AnnictDataContext } from '../../context/AnnictDataContext'
 
 // MemoListメイン画面
 const AnimeList_Screen = (): JSX.Element => {
+    const {annictData} = useContext(AnnictDataContext)
+
     return (
         // 外枠
         <View style={styles.container}>
@@ -23,9 +26,12 @@ const AnimeList_Screen = (): JSX.Element => {
                 </View>
                 {/* リスト */}
                 <View style={styles.list}>
-                    <AnimeListItem animeTitle='アニメタイトル1' animeAirDate='yyyy/mm/dd' />
-                    <AnimeListItem animeTitle='アニメタイトル2' animeAirDate='yyyy/mm/dd' />
-                    <AnimeListItem animeTitle='アニメタイトル3' animeAirDate='yyyy/mm/dd' />
+                    {annictData.map((item) => (
+                        <AnimeListItem 
+                            key={item.id}
+                            animeTitle={item.title} 
+                            animeAirDate={item.date} />
+                    ))}
                 </View>
             </View>
         </View>
