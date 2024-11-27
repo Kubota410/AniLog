@@ -23,6 +23,6 @@ const defaultValue: AnnictDataContextType = {
         { id: 5, title: "Initial Anime 5", date: "2024-11-21" }
     ],
     setAnnictData: () => {},
-};
+}
 
 export const AnnictDataContext = createContext<AnnictDataContextType>(defaultValue)

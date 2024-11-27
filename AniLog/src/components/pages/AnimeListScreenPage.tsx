@@ -1,22 +1,18 @@
 import React, { useContext } from 'react'
 import { Text, View, StyleSheet, TextInput } from 'react-native'
-import HeaderMain from '../../components/organisms/HeaderMain'
 import AnimeListItem from '../../components/molecules/AnimeListItem'
 import { AnnictDataContext } from '../../context/AnnictDataContext'
+import { CONST_COLORS } from '../../constants/styleConstants'
 
 // MemoListメイン画面
-const AnimeList_Screen = (): JSX.Element => {
+const AnimeListScreenPage = (): JSX.Element => {
     const {annictData} = useContext(AnnictDataContext)
 
     return (
-        // 外枠
         <View style={styles.container}>
-            {/* header */}
-            <HeaderMain />
-
             {/* 検索 */}
             <View style={styles.searchContainer}>
-            <TextInput style={styles.searchInputBox}>デフォルト文字</TextInput>
+                <TextInput style={styles.searchInputBox}>デフォルト文字</TextInput>
             </View>
 
             {/* Body */}
@@ -42,7 +38,7 @@ const styles = StyleSheet.create({
     // 全体背景色
     container: {
         flex: 1,
-        backgroundColor: '#ffffff'
+        backgroundColor: CONST_COLORS.backGroundMain
     },
 
     // 検索コンテナ
@@ -81,4 +77,4 @@ const styles = StyleSheet.create({
     }
 })
 
-export default AnimeList_Screen
+export default AnimeListScreenPage

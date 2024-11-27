@@ -1,15 +1,10 @@
 import React from 'react'
 import { View, StyleSheet } from 'react-native'
-import HeaderSub from '../../components/organisms/HeaderSub'
 
-// MemoListメイン画面
-const Feedback_Screen = (): JSX.Element => {
+const SettingNotifyScreenPage = (): JSX.Element => {
   return (
     // 外枠
     <View style={styles.container}>
-        {/* ヘッダー */}
-        <HeaderSub subTitleStr='質問・要望' />
-
         {/* ボディ */}
         <View style={styles.body}>
 
@@ -31,4 +26,4 @@ const styles = StyleSheet.create({
     }
 })
 
-export default Feedback_Screen
+export default SettingNotifyScreenPage

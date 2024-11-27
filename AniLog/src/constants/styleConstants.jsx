@@ -36,8 +36,7 @@ export const CONST_COLORS = {
     test1: 'red',
     test2: 'blue',
     test3: 'yellow',
-    backGroundBody: '#DCDCDC',
-    backGroundHeader: '#ffffff',
+    backGroundMain: '#ffffff',
     text: 'darkgray',
     icomHeader: '#777777',
     icomItemSub: '#B7B7B7',
@@ -48,5 +47,5 @@ export const CONST_COLORS = {
 
 // 寸法
 export const CONST_DIMENSIONS = {
-    headerHeight: 60
+    headerHeight: 40
 }

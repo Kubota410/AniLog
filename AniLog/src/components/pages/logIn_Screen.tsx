@@ -1,8 +1,7 @@
 import React from 'react'
 import { Text, TextInput, View, StyleSheet } from 'react-native'
 import { Text as ElementText } from 'react-native-elements'
-import Header from '../../components/organisms/HeaderMain'
-import Button from '../../components/atoms/Button'
+import Button from '../atoms/Button'
 import { Link } from 'expo-router'
 
 // MemoListメイン画面
@@ -10,9 +9,6 @@ const LogIn = (): JSX.Element => {
   return (
     // 外枠
     <View style={styles.container}>
-        {/* header枠 */}
-        <Header />
-
         {/* body枠 */}
         <View style={styles.inner}>
             <Text style={styles.title}>ログイン</Text>

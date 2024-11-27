@@ -1,15 +1,10 @@
 import React from 'react'
 import { View, StyleSheet } from 'react-native'
-import HeaderSub from '../../components/organisms/HeaderSub'
 
-// MemoListメイン画面
-const releaseNotes_Screen = (): JSX.Element => {
+const UpdateDiaryScreenPage = (): JSX.Element => {
   return (
     // 外枠
     <View style={styles.container}>
-        {/* ヘッダー */}
-        <HeaderSub subTitleStr='アプデ日記' />
-
         {/* ボディ */}
         <View style={styles.body}>
 
@@ -31,4 +26,4 @@ const styles = StyleSheet.create({
     }
 })
 
-export default releaseNotes_Screen
+export default UpdateDiaryScreenPage

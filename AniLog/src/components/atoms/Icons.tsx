@@ -39,6 +39,6 @@ export const KariIcon = ():JSX.Element => {
 const styles = StyleSheet.create({
     icon:{
         color: CONST_COLORS.icomHeader,
-        fontSize: CONST_SIZES.L
+        fontSize: CONST_SIZES.M
     }
 })

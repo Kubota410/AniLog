@@ -1,4 +1,5 @@
 import { View, Text, StyleSheet } from "react-native"
+import { CONST_COLORS } from "../../constants/styleConstants"
 
 interface Props{
     animeTitle: string
@@ -39,6 +40,7 @@ const AnimeListItem = (props: Props): JSX.Element => {
 const styles = StyleSheet.create({
     // リストアイテム
     listItem:{
+        backgroundColor: CONST_COLORS.backGroundMain,
         height: 48,
         borderBottomWidth: 1,
         borderColor: 'lightgray',
@@ -47,7 +49,6 @@ const styles = StyleSheet.create({
         flexDirection: 'row', // 中の要素を横並び
         alignItems: 'center' // 縦中央揃え
     },
-    
     // リストアイテム内の要素
     animeInfoContainer:{
         // 左側全体を覆うコンテナ
