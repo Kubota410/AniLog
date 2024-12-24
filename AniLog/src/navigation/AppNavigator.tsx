@@ -17,34 +17,49 @@ import {
   UpdateDiaryScreenTemplate,
 } from "../components/template/ScreenTemplate";
 import { CONST_DIMENSIONS } from "../constants/styleConstants";
+import { useUser } from "../context/UserContext";
 
 // ドロワーナビゲーターを作成
 const Drawer = createDrawerNavigator();
 
 // アプリ全体のナビゲーションコンテナを定義
-const AppNavigator = () => (
-  <NavigationContainer>
-    {/* ドロワーナビゲーターの定義 */}
-    <Drawer.Navigator
-      drawerContent={(props) => <CustomDrawerContent {...props} />} // カスタムドロワーコンテンツを適用
-      screenOptions={{ headerShown: false }} // 各画面でヘッダーを非表示に設定
-      initialRouteName="Login"
-    >
-      {/* 各ドロワー画面の設定 */}
-      <Drawer.Screen name="Login" component={LoginScreenTemplate} />
-      <Drawer.Screen name="Home" component={AnimeListScreenTemplate} />
-      <Drawer.Screen
-        name="ButtonSetting"
-        component={SettingButtonScreenTemplate}
-      />
-      <Drawer.Screen
-        name="NotifySetting"
-        component={SettingNotifyScreenTemplate}
-      />
-      <Drawer.Screen name="UpdateDiary" component={UpdateDiaryScreenTemplate} />
-    </Drawer.Navigator>
-  </NavigationContainer>
-);
+const AppNavigator = () => {
+  // ユーザーコンテキスト
+  const { user } = useUser();
+
+  // accessTokenの中身が存在するかどうかをチェック
+  const initialRouteName =
+    user?.accessToken && user.accessToken.length > 0 ? "Home" : "Login";
+
+  console.log("＊＊遷移先＞", initialRouteName);
+
+  return (
+    <NavigationContainer>
+      {/* ドロワーナビゲーターの定義 */}
+      <Drawer.Navigator
+        drawerContent={(props) => <CustomDrawerContent {...props} />} // カスタムドロワーコンテンツを適用
+        screenOptions={{ headerShown: false }} // 各画面でヘッダーを非表示に設定
+        initialRouteName={initialRouteName}
+      >
+        {/* 各ドロワー画面の設定 */}
+        <Drawer.Screen name="Login" component={LoginScreenTemplate} />
+        <Drawer.Screen name="Home" component={AnimeListScreenTemplate} />
+        <Drawer.Screen
+          name="ButtonSetting"
+          component={SettingButtonScreenTemplate}
+        />
+        <Drawer.Screen
+          name="NotifySetting"
+          component={SettingNotifyScreenTemplate}
+        />
+        <Drawer.Screen
+          name="UpdateDiary"
+          component={UpdateDiaryScreenTemplate}
+        />
+      </Drawer.Navigator>
+    </NavigationContainer>
+  );
+};
 
 // カスタムドロワーのコンテンツを定義（左Navigation）
 const CustomDrawerContent = (props: any) => (

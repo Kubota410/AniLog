@@ -3,6 +3,7 @@ import * as AuthSession from "expo-auth-session";
 import { AuthInfo } from "../constants/apiConstants";
 import { useUser } from "../context/UserContext";
 import getUserInfo from "../services/getUserInfo";
+import { saveToken } from "../utils/secureStore";
 
 /**
  * ログインhooks
@@ -41,9 +42,11 @@ export const useLogin = () => {
   const initialize = useCallback(async () => {
     // ログアウト処理
     setUser(null);
+    saveToken("");
     setAuthorizationCode("");
     setAccessToken("");
     setErrorMessage("");
+    console.log("ログイン画面 初期処理完了");
   }, []);
 
   /**
@@ -112,6 +115,8 @@ export const useLogin = () => {
             email: result?.email,
             accessToken: accessToken,
           });
+          // 端末に保存
+          saveToken(accessToken);
         })
         .catch((errorResult) => {
           // 失敗　エラー表示
